@@ -24,4 +24,4 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y \
     php7.1-mysql \
     php-xdebug \
     php-tideways \
-&& apt-get autoclean && apt-get autoremove
+&& apt-get autoclean && apt-get -y autoremove
