@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     php7.1-mcrypt \
     php-redis \
     php7.1-mysql \
+    php7.1-xml \
     php-xdebug \
     php-tideways \
     --no-install-recommends \
