@@ -20,10 +20,11 @@ RUN apt-get update && apt-get install -y \
     php7.1 \
     php7.1-dev \
     php7.1-mcrypt \
-    php-redis \
+    php7.1-redis \
     php7.1-mysql \
     php7.1-xml \
-    php-xdebug \
-    php-tideways \
+    php7.1-xdebug \
+    php7.1-tideways \
     --no-install-recommends \
-&& apt-get autoclean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
+&& update-alternatives --set php /usr/bin/php7.1
+RUN apt-get purge -y php7.2 && apt-get autoclean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
