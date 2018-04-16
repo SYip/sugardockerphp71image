@@ -1,11 +1,15 @@
 FROM debian:9.2
 MAINTAINER enrico.simonetti@gmail.com
 
-RUN apt-get update && apt-get install -y curl apt-transport-https lsb-release ca-certificates --no-install-recommends
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    curl \
+    apt-transport-https \
+    lsb-release \
+    ca-certificates
 RUN curl -sS https://packages.sury.org/php/apt.gpg -o /etc/apt/trusted.gpg.d/php.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
     unzip \
     vim \
     build-essential \
@@ -25,6 +29,12 @@ RUN apt-get update && apt-get install -y \
     php7.1-xml \
     php7.1-xdebug \
     php7.1-tideways \
-    --no-install-recommends \
 && update-alternatives --set php /usr/bin/php7.1
-RUN apt-get purge -y php7.2 && apt-get autoclean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
+RUN apt-get purge -y \
+    php7.2-cli \
+    php7.2-common \
+    php7.2-json \
+    php7.2-opcache \
+    php7.2-phpdbg \
+    php7.2-readline \
+&& apt-get autoclean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
