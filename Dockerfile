@@ -6,9 +6,6 @@ RUN curl -sS https://packages.sury.org/php/apt.gpg -o /etc/apt/trusted.gpg.d/php
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 
 RUN apt-get update && apt-get install -y \
-    unzip \
-    vim \
-    build-essential \
     apache2 \
     php7.1-curl \
     php7.1-gd \
