@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     php7.1-xml \
     php7.1-xdebug \
     php7.1-tideways \
+    php7.1-gmp \
 && update-alternatives --set php /usr/bin/php7.1
 RUN apt-get purge -y \
     php7.2-cli \
